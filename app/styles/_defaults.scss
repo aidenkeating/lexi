@@ -1,0 +1,346 @@
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+
+$box-shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
+
+*:focus {
+    outline: none;
+}
+
+.large-only {
+	@media screen and (max-width: $screen-xs-max) {
+		display: none;
+	}
+}
+
+.small-only {
+	@media screen and (min-width: $screen-sm-min) {
+		display: none;
+	}
+}
+
+.rc-calendar-table {
+	margin: auto;
+	padding-bottom: 10px;
+	.rc-calendar-cell,
+	.rc-calendar-column-header-inner {
+		padding: 2px;
+		text-align: left;
+	}
+	.rc-calendar-cell {
+		border-bottom: 1px solid $gray;
+		&:hover {
+			background-color: rgba($theme-color, 0.2);
+			border-bottom: 1px solid $theme-color;
+			cursor: pointer;
+		}
+	}
+}
+.rc-calendar-prev-year-btn,
+.rc-calendar-prev-month-btn,
+.rc-calendar-next-year-btn,
+.rc-calendar-next-month-btn {
+	color: $gray;
+	font-size: 1.3rem;
+	&:hover {
+		color: $theme-color;
+	}
+}
+
+.rc-calendar-prev-year-btn,
+.rc-calendar-prev-month-btn {
+	padding-right: 12px;
+}
+.rc-calendar-next-year-btn,
+.rc-calendar-next-month-btn {
+	padding-left: 12px;
+}
+
+.rc-calendar-prev-year-btn,
+.rc-calendar-prev-month-btn,
+.rc-calendar-next-year-btn,
+.rc-calendar-next-month-btn {
+	cursor: pointer;
+}
+
+.rc-calendar-month-select {
+	padding-right: 5px;
+}
+.rc-calendar-year-select {
+	padding-left: 5px;
+}
+
+.icon-toggle {
+	font-size: 1.5em;
+	background-color: transparent;
+	color: gray;
+	border: none;
+
+	&:focus {
+		outline: none;
+		box-shadow: none;
+		color: orange;
+	}
+}
+
+.app-body-container {
+	padding-top: 50px;
+}
+
+.input-title-container {
+	width: 100%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-title {
+	font-weight: bold;
+	text-align: right;
+	color: #808080;
+}
+
+.input {
+	display: block;
+	height: 30px;
+	font-size: 1.2em;
+	width: 100%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0px;
+	border-bottom: 3px solid $gray;
+	&:active,&:hover {
+		border-bottom: 3px solid $theme-color;
+	}
+	&:focus {
+		border-bottom: 3px solid darken($theme-color, 15%);
+	}
+}
+
+.button {
+	height: 70px;
+	box-shadow: none;
+	background-color: transparent;
+	border: 0px;
+	font-size: 1.2em;
+	width: 100%;
+	background-color: darken($theme-color, 5%);
+	color: white;
+	cursor: pointer;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	vertical-align: top;
+	&:hover {
+		background-color: darken($theme-color, 15%);
+	}
+}
+
+.remove-button {
+	position: absolute;
+	right: 10px;
+	top: 12.5px;
+	z-index: 20;
+	height: 1.6rem;
+	width: 6rem;
+	border-radius: 5px;
+}
+
+.anchor {
+	box-shadow: none;
+	background-color: transparent;
+	color: darken($theme-color, 5%);
+	font-size: 1.0em;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	background-color: transparent;
+	cursor: pointer;
+	vertical-align: top;
+	&:hover {
+		color: darken($theme-color, 15%);
+	}
+}
+
+.text {
+	color: gray;
+}
+
+.icon-button {
+	@extend .button;
+	font-size: 2em;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.thumbnail {
+	border-radius: 50%;
+	height: 35px;
+	width: auto;
+}
+
+.absolute-center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hidden {
+	width: 0px;
+	height: 0px;
+	opacity: 0;
+}
+
+.blur {
+	$blur: 10px;
+	-webkit-filter: blur($blur);
+	-moz-filter: blur($blur);
+	-o-filter: blur($blur);
+	-ms-filter: blur($blur);
+	filter: blur($blur);
+}
+
+.component {
+	.component-title {
+		margin: 0px;
+		text-align: center;
+		color: black;
+		font-size: 1.4rem;
+		background-color: rgba(lighten($theme-color,0.9), 0.4);
+		padding: 15px 0px 10px 0px;
+		font-weight: bold;
+		border-bottom: 1px solid $theme-color;
+	}
+
+	.component-footer {
+		background-color: rgba(lighten($theme-color,0.9), 0.4);
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		height: 15px;
+	}
+
+	.component-tab-container {
+		position: relative;
+
+		&.list {
+			.component-tab-body {
+				margin: 0px 5px 0px 5px;
+			}
+		}
+	}
+
+	.component-tab {
+		position: relative;
+		margin: 0px;
+		text-align: center;
+		color: black;
+		font-size: 1.2rem;
+		background-color: rgba(lighten($theme-color,0.9), 0.1);
+		padding: 15px 0px 10px 0px;
+		font-weight: bold;
+		border-bottom: 1px solid $theme-color;
+
+		&:hover {
+			background-color: rgba(lighten($theme-color,0.9), 0.2);
+		}
+		&:active,&:focus {
+			background-color: rgba(lighten($theme-color,0.9), 0.3);
+		}
+	}
+
+	.component-tab-body {
+		max-height: 0px;
+		transition: max-height 0.5s ease-in-out;
+	}
+
+	background-color: white;
+	box-shadow: $box-shadow;
+	border-radius: 5px;
+	padding: 0px;
+	text-align: center;
+	&.scrollable {
+		position: relative;
+	}
+	&.header {
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+	}
+}
+
+input[type="checkbox"]:checked {
+	border-radius: 50%;
+	border: 1px solid $theme-color;
+}
+.typeahead-tokenizer {
+	margin-top: 10px;
+}
+.typeahead-result-container {
+	width: 100%;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid $gray;
+	.typeahead-result {
+		list-style-type: none;
+		border-bottom: 1px solid $gray;
+		padding: 5px 0px 5px 0px;
+		&:hover {
+			background-color: rgba($theme-color, 0.2);
+			border-bottom: 1px solid $theme-color;
+		}
+	}
+	.typeahead-result-anchor {
+		color: $theme-color;
+	}
+}
+.typeahead-token {
+	display: inline-block;
+	color: white;
+	padding: 5px;
+	background-color: $theme-color;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	.typeahead-token-close {
+		text-decoration: none;
+		padding: 5px;
+		margin-left: 10px;
+		color: white;
+		&:hover {
+			background-color: darken($theme-color, 10%);
+		}
+	}
+}
+.checkbox {
+	color: $theme-color;
+	background-color: transparent;
+	border: 0px;
+	font-size: 3rem;
+}
+
+.constrained {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	.inner-constrained {
+		max-width: 990px;
+		text-align: left;
+	}
+}
+
+.app-body-container {
+	margin: auto;
+}

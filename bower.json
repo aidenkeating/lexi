@@ -1,0 +1,21 @@
+{
+  "name": "desktop_browser_frontend",
+  "version": "0.0.0",
+  "authors": [
+    "Aiden Keating"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "General Copyright",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.3"
+  }
+}
