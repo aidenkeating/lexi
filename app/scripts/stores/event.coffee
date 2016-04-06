@@ -61,7 +61,6 @@ EventStore = Reflux.createStore
 				console.log err
 
 	onUpdate: (eventId, callbacks) ->
-		console.log
 		Query = new Parse.Query 'Event'
 		Query.get eventId,
 			success: (event) =>
