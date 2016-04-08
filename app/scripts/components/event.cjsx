@@ -16,6 +16,8 @@ TypeaheadInput     = require './common/typeahead_input'
 Config             = require '../config'
 NumberInput        = require './common/number_input'
 DateInput          = require './common/date_input'
+JSONTree           = require './common/json_tree'
+JSONTreeActions    = require '../actions/json_tree'
 
 Event = React.createClass
 	mixins: [Reflux.connect(EventStore,'eventStore')]
@@ -39,22 +41,13 @@ Event = React.createClass
 			@state.eventStore.event.title
 		else 'Loading . . .'
 
-	updateActive: ->
-		newState = _.extend {}, @state
-		newState.eventStore.event.payload.active = !newState.eventStore.event.payload.active
-		@setState newState
-
-	updateAvailable: ->
-		newState = _.extend {}, @state
-		newState.eventStore.event.payload.available = !newState.eventStore.event.payload.available
-		@setState newState
-
 	updateState: (reference, value) ->
 		newState = _.extend {}, @state
 		Utils.assign newState.eventStore.event.payload, reference, value
 		@setState newState
 
-	getValue: (reference) -> Utils.resolve reference.join('.'), @state.eventStore.event.payload
+	getValue: (reference) ->
+		Utils.resolve reference.join('.'), @state.eventStore.event.payload if @payloadExists()
 
 	payloadExists: -> @state.eventStore.event? && @state.eventStore.event.payload?
 
@@ -118,6 +111,9 @@ Event = React.createClass
 			@updateState path.slice(0,-1), value
 		else @updateState path, undefined
 
+	toggleJSONTree: ->
+		JSONTreeActions.toggle()
+
 	# TODO: This effort could be put into a config which render uses to generate the root components
 	render: ->
 		<div className='home-container'>
@@ -162,6 +158,8 @@ Event = React.createClass
 				</div>
 			</Component>
 			<div style={{height:'25px'}}/>
+			<JSONTree className='json-tree-container' data={@getValue([])}/>
+			<button className='util-button' onClick={@toggleJSONTree}>{"{ }"}</button>
 		</div>
 
 module.exports = Event
