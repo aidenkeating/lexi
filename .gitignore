@@ -6,5 +6,5 @@ app/vendor
 .tmp
 test/scripts/
 app/styles/_config.scss
-app/scripts/config.coffee
+app/scripts/config.cjsx
 .DS_Store
