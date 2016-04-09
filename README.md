@@ -1,1 +1,1 @@
-# Lexi CMS
+# Lexi Content Management System
