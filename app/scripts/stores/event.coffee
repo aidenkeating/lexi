@@ -35,10 +35,13 @@ EventStore = Reflux.createStore
 
 	onCreate: (title) ->
 		Event = Parse.Object.extend 'Event'
+		structTemplate = Config.template.defaultStruct
+		structTemplate.name = title
+		structTemplate.nameLowercase = title.toLowerCase()
 		newEvent = new Event
 		newEvent.set 'title', title
 		newEvent.set 'owner', Parse.User.current()
-		newEvent.set 'payload', Config.template.defaultStruct
+		newEvent.set 'payload', structTemplate
 		newEvent.save null,
 			success: (event) =>
 				@state.eventList.unshift
