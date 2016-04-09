@@ -78,4 +78,17 @@ EventStore = Reflux.createStore
 			error: (err) ->
 				console.log err
 
+	onDelete: (eventId) ->
+		Query = new Parse.Query 'Event'
+		Query.get eventId,
+			success: (event) =>
+				event.destroy
+					success: (event) =>
+						@onList event.get('owner').id
+					error: (event, error) ->
+						console.log "Destroy fail"
+				@trigger @state
+			error: (err) ->
+				console.log err
+
 module.exports = EventStore

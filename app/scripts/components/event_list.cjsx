@@ -28,9 +28,12 @@ EventList = React.createClass
 
 	handleSignOut: -> AuthActions.signOut()
 
+	handleDelete: (id) -> EventActions.delete id
+
 	renderEvent: (event) ->
 		<div key={event.id} className='animated slideInUp' style={{marginTop:'25px'}}>
 			<Component className='constrained' title={event.title}>
+				<button className='delete-button' onClick={@handleDelete.bind(@,event.id)}>X</button>
 				<Link to={"/event/#{event.id}"}>
 					<Button text='Edit'/>
 				</Link>

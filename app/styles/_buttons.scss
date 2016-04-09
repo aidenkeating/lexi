@@ -21,3 +21,12 @@
 	@extend .util-button;
 	left: 10px;
 }
+
+.delete-button {
+	@extend .util-button;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 30px;
+	width: 30px;
+}

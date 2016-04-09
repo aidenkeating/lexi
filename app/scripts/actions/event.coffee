@@ -4,7 +4,8 @@ EventActions = Reflux.createActions [
 		'create',
 		'list',
 		'get',
-		'update'
+		'update',
+		'delete'
 	]
 
 module.exports = EventActions

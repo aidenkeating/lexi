@@ -217,6 +217,7 @@ $box-shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
 }
 
 .component {
+	position: relative;
 	.component-title {
 		margin: 0px;
 		text-align: center;
