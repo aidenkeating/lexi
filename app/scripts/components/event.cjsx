@@ -18,6 +18,7 @@ NumberInput        = require './common/number_input'
 DateInput          = require './common/date_input'
 JSONTree           = require './common/json_tree'
 JSONTreeActions    = require '../actions/json_tree'
+Link               = require('react-router').Link
 
 Event = React.createClass
 	mixins: [Reflux.connect(EventStore,'eventStore')]
@@ -160,6 +161,9 @@ Event = React.createClass
 			<div style={{height:'25px'}}/>
 			<JSONTree className='json-tree-container' data={@getValue([])}/>
 			<button className='util-button' onClick={@toggleJSONTree}>{"{ }"}</button>
+			<Link to='/'>
+				<button className='signout-button'>{"<"}</button>
+			</Link>
 		</div>
 
 module.exports = Event

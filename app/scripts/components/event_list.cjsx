@@ -26,6 +26,8 @@ EventList = React.createClass
 
 	createEvent: -> EventActions.create @state.newTitle
 
+	handleSignOut: -> AuthActions.signOut()
+
 	renderEvent: (event) ->
 		<div key={event.id} className='animated slideInUp' style={{marginTop:'25px'}}>
 			<Component className='constrained' title={event.title}>
@@ -43,6 +45,7 @@ EventList = React.createClass
 				<Button text='Create a new event' onClick={@createEvent}/>
 			</Component>
 			{@state.eventStore.eventList.map(@renderEvent)}
+			{<button className='signout-button' onClick={@handleSignOut}>exit</button> if @state.authStore.authenticated}
 		</div>
 
 module.exports = EventList

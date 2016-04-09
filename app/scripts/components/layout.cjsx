@@ -1,7 +1,11 @@
-React  = require 'react'
-Header = require './header'
+React       = require 'react'
+Reflux      = require 'reflux'
+Header      = require './header'
+AuthStore   = require '../stores/auth'
 
 Layout = React.createClass
+	mixins: [Reflux.connect(AuthStore,'authStore')]
+
 	render: ->
 		<div className='app-container'>
 			<Header/>

@@ -38,7 +38,6 @@ AuthStore = Reflux.createStore
 		user.set "email", credentials.email
 		user.signUp null,
 			success: (user) =>
-				console.log "SUCCESS"
 				@state.authenticated = true
 				@state.sessionToken = user.getSessionToken()
 				@state.userId = user.id
@@ -46,5 +45,13 @@ AuthStore = Reflux.createStore
 				callbacks.success()
 			error: (user,err) ->
 				callbacks.error()
+
+	onSignOut: ->
+		Store.clear()
+		@state =
+			userId: null
+			sessionToken: null
+			authenticated: false
+		@trigger @state
 
 module.exports = AuthStore

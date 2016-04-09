@@ -6,6 +6,7 @@ HeaderStore = require '../stores/header_store'
 
 Header = React.createClass
 	mixins: [Reflux.connect(HeaderStore,'headerStore')]
+	
 	render: ->
 		<div className='header-container animated slideInDown'>
 			<Component className='header constrained'>

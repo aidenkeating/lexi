@@ -2,7 +2,8 @@ Reflux = require 'reflux'
 
 AuthActions = Reflux.createActions [
 		'signIn',
-		'signUp'
+		'signUp',
+		'signOut'
 	]
 
 module.exports = AuthActions
